@@ -19,6 +19,8 @@ SELECT
   Payment.payment_date,
   Payment.payment_method
 FROM Booking
+WHERE total_price > 20.0 
+AND status = 'confirmed'
 LEFT JOIN User ON Booking.user_id = User.id
 LEFT JOIN Property ON Booking.property_id = Property.id
 LEFT JOIN Payment ON Booking.id = Payment.booking_id;
